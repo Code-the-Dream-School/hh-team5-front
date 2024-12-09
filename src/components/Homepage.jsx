@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import foodcollage from '/images/foodcollage.png'
 import meatballs from '/images/meatballs.jpg'
 
@@ -19,6 +20,25 @@ const Homepage = () => {
       link: "/favorites"
     }
   ]
+
+  return (
+    <>
+      <h1>Hello, Chef.</h1>
+      <div>
+        <ul>
+          {routeCards.map((routeCard) => (
+            <li key={routeCard.id}>
+              <Link to={routeCard.link}>
+                  <h2>{routeCard.title}</h2> 
+                  <p>{routeCard.description}</p>
+              </Link>
+            </li>
+            ))
+          }
+        </ul>
+      </div>
+    </>
+  )
 }
 
 export default Homepage
