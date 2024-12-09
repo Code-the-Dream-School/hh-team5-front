@@ -1,0 +1,23 @@
+:root {
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-black: hsl(0, 0%, 0%);
+    --clr-green: hsl(80, 60%, 35%);
+    --clr-yellow: hsl(46, 74%, 92%);
+
+    --ff-heading: "Fjalla One", sans-serif;
+    --ff-body: "Fira Mono", monospace;
+}
+
+body {
+    background-color: var(--clr-green);
+    color: var(--clr-black);
+    font-family: var(--ff-heading);
+    line-height: 1.6;
+}
+
+h1,
+h2 {
+  display: block;
+  font-family: var(--ff-heading);
+  color: var(--clr-white);
+}
