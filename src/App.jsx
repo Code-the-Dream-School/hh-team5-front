@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getAllData } from './util/index';
+import {BrowserRouter, Routes, Route } from 'react-router-dom'
+import Homepage from './components/Homepage'
 
 const URL = 'http://localhost:8000/api/v1/';
 
@@ -21,9 +23,14 @@ function App() {
   }, []);
 
   return (
-    <>
-      <h1>{message}</h1>
-    </>
+  <BrowserRouter>
+    <h1>{message}</h1>
+    <Routes>
+      <Route path='/' element={<Homepage/>}/>
+      <Route path='FindARecipe' element={<h1>Find A Recipe</h1>}/>
+      <Route path='Favorites' element={<h1>Favorites</h1>}/>
+    </Routes>
+  </BrowserRouter>
   );
 
 }
