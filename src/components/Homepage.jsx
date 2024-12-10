@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import foodcollage from '/images/foodcollage.png'
-import meatballs from '/images/meatballs.jpg'
+import style from './Homepage.module.css';
+import foodcollage from '/images/foodcollage1x.png'
+import meatballs from '/images/meatballs1x.png'
 
 const Homepage = () => {
   const routeCards = [
@@ -24,13 +25,15 @@ const Homepage = () => {
   return (
     <>
       <h1>Hello, Chef.</h1>
-      <div>
+      <div className={style.routesContainer}>
         <ul>
           {routeCards.map((routeCard) => (
-            <li key={routeCard.id}>
+            <li key={routeCard.id} className={style.routeCard}>
               <Link to={routeCard.link}>
+                <div className={style.routesImage} style={{backgroundImage: `url(${routeCard.image})`}}>
                   <h2>{routeCard.title}</h2> 
-                  <p>{routeCard.description}</p>
+                </div>
+                <p>{routeCard.description}</p>
               </Link>
             </li>
             ))
