@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import style from './Homepage.module.css';
-import foodcollage from '/images/foodcollage1x.png'
-import meatballs from '/images/meatballs1x.png'
+import foodcollage from '/images/foodcollage.png'
+import meatballs from '/images/meatballs.png'
 
 const Homepage = () => {
   const routeCards = [
@@ -23,24 +22,24 @@ const Homepage = () => {
   ]
 
   return (
-    <>
-      <h1>Hello, Chef.</h1>
-      <div className={style.routesContainer}>
-        <ul>
+    <div class="bg-green min-h-screen flex items-center flex-col p-4">
+      <h1 class="font-heading text-white text-4xl w-full text-center py-2 mt-12 mb-8">Hello, Chef.</h1>
+      <div class="max-w-4xl m-4">
+        <ul class="flex flex-row">
           {routeCards.map((routeCard) => (
-            <li key={routeCard.id} className={style.routeCard}>
+            <li class="bg-yellow rounded-[20px] drop-shadow-md p-8 m-6" key={routeCard.id}>
               <Link to={routeCard.link}>
-                <div className={style.routesImage} style={{backgroundImage: `url(${routeCard.image})`}}>
-                  <h2>{routeCard.title}</h2> 
+                <div class="rounded-[15px] drop-shadow-md py-16 bg-contain bg-no-repeat" style={{ backgroundImage: `url(${routeCard.image})`, backgroundSize:'100% 100%'}}>
+                  <h2 class="bg-black font-heading text-white text-2xl w-full text-center py-2">{routeCard.title}</h2> 
                 </div>
-                <p>{routeCard.description}</p>
+                <p class="font-body text-center mt-6">{routeCard.description}</p>
               </Link>
             </li>
             ))
           }
         </ul>
       </div>
-    </>
+    </div>
   )
 }
 
