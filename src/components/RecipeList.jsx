@@ -1,4 +1,5 @@
-import RecipeCard from "./RecipeCard";
+import RecipeCard from "./RecipeCard/RecipeCard";
+import PropTypes from 'prop-types'
 
 const RecipeList = ({ recipes }) => {
     return (
@@ -13,5 +14,9 @@ const RecipeList = ({ recipes }) => {
         </div >
     );
 };
+
+RecipeList.propTypes = {
+    recipes: PropTypes.arrayOf(PropTypes.object).isRequired
+}
 
 export default RecipeList;

@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { getAllData } from './util/index';
 import Header from "./components/Header/Header.jsx";
-import RecipePage from "./components/RecipePage/Recipepage.jsx";
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Homepage from './components/Homepage'
-import RecipeList from './components/RecipeList';
-import { recipes } from './list';
+import { getAllData } from './util/index';
+import Homepage from './components/Homepage/Homepage.jsx'
+import FavoritesPage from "./components/FavoritesPage/FavoritesPage.jsx";
 
 
 const URL = "http://localhost:8000/api/v1/";
@@ -46,7 +44,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='FindARecipe' element={<h1>Find A Recipe</h1>} />
-        <Route path='Favorites' element={<h1>Favorites</h1>} />
+        <Route path='Favorites' element={<FavoritesPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Modal from './Modal'
+import Modal from '../Modal'
 import RecipeInfo from "./RecipeInfo";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons'; // Solid heart (filled)
@@ -17,13 +17,7 @@ const RecipeCard = ({ recipes }) => {
     }} />
 
     const toggleFavorite = (id) => {
-        setRecipe(pre => {
-            (pre.map(item => {
-                return (
-                    item.recipeID === id ? { ...item, isFavorite: !item.isFavorite } : item
-                )
-            }))
-        })
+        setRecipe(prev => prev.recipeID === id ? { ...prev, isFavorite: !prev.isFavorite } : prev)
     };
 
     const handleOpen = () => {
