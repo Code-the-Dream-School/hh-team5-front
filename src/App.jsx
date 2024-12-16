@@ -4,6 +4,9 @@ import Header from "./components/Header/Header.jsx";
 import RecipePage from "./components/RecipePage/Recipepage.jsx";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Homepage from './components/Homepage'
+import RecipeList from './components/RecipeList';
+import { recipes } from './list';
+
 
 const URL = "http://localhost:8000/api/v1/";
 
