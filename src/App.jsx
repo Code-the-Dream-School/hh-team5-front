@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getAllData } from "./util/index";
 import Header from "./components/Header/Header.jsx";
-import RecipePage from "./components/RecipePage/Recipepage.jsx";
+import RecipePage from "./components/RecipePage/RecipePage.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const URL = "http://localhost:8000/api/v1/";
