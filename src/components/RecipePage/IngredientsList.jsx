@@ -1,6 +1,6 @@
 // his component renders a list of ingredients.
 import React from 'react';
-import IngredientItem from './IngridientItem';
+import IngredientItem from './IngredientItem';
 
 const IngredientsList = ({ ingredients }) => {
   return (

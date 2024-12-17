@@ -7,28 +7,14 @@ import RecipeImage from './RecipeImage'; // Display the recipe image
 
 
 const RecipePage = ({ recipe }) => {
+  const { name, timeCook, recipeImage, ingredients, directions } = recipe;
   return (
     <div className="recipe-page">
-      <RecipeHeader title={recipe.title} cookTime={recipe.cookTime} />
-      <RecipeImage image={recipe.image} />
-      <RecipeContent ingredients={recipe.ingredients} steps={recipe.steps} />
+      <RecipeHeader title={name} cookTime={timeCook} />
+      <RecipeImage image={recipeImage} />
+      <RecipeContent ingredients={ingredients} steps={directions} />
     </div>
   );
 };
 
 export default RecipePage;
-
-// // 
-// ├── Header
-// │ ├── NavBar
-// │ ├── NavLink (Home, Favorites, Logout)
-// ├── RecipePage
-// │ ├── RecipeHeader
-// │ ├── RecipeTitle
-// │ ├── CookTime
-// │ ├── RecipeContent
-// │ ├── IngredientsList
-// │ ├── IngredientItem
-// │ ├── DirectionsList
-// │ ├── DirectionStep
-// │ ├── RecipeImage

@@ -1,6 +1,6 @@
 // This component is a wrapper for displaying ingredients and directions.
 import React from 'react';
-import IngredientsList from './IngridientsList';
+import IngredientsList from './IngredientsList';
 import DirectionsList from './DirectionsList';
 
 const RecipeContent = ({ ingredients, steps }) => {
