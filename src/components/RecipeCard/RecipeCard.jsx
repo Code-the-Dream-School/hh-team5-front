@@ -5,8 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons'; // Solid heart (filled)
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons'; // Regular heart (empty)
 
-const RecipeCard = ({ recipes }) => {
-    const [recipe, setRecipe] = useState(recipes);
+
+const RecipeCard = ({ recipe , onFavoriteToggle}) => {
+    // const [recipe, setRecipe] = useState(recipes);
     const [open, setOpen] = useState(false);
 
     const heartFilled = <FontAwesomeIcon icon={faHeartSolid} style={{
@@ -17,10 +18,12 @@ const RecipeCard = ({ recipes }) => {
     }} />
 
     const toggleFavorite = (id) => {
-        setRecipe(prev => prev.recipeID === id ? { ...prev, isFavorite: !prev.isFavorite } : prev)
+        // setRecipe(prev => prev.recipeID === id ? { ...prev, isFavorite: !prev.isFavorite } : prev)
+        onFavoriteToggle(recipe.recipeID); 
     };
 
-    const handleOpen = () => {
+    const handleOpen = (e) => {
+        e.stopPropagation();  // Prevent click event from bubbling up
         setOpen(true);
     };
 
@@ -31,21 +34,49 @@ const RecipeCard = ({ recipes }) => {
     return (
         <div className="card" onClick={handleOpen}>
             <button
-                onClick={() => toggleFavorite(recipe.recipeID)}
+                onClick={(e) => { 
+                    e.stopPropagation(); // Prevent modal from opening when clicking favorite
+                    toggleFavorite(); // Toggle favorite status
+                }}
                 className="favorite"
+
             >
                 {recipe.isFavorite ? heartFilled : heartEmpty}
             </button>
-            <img src={recipe.recipeImage} />
+            <img src={recipe.recipeImage} alt={recipe.name} />
             <RecipeInfo key={recipe.recipeID} name={recipe.name} time={recipe.timeCook} />
-            {open &&
+
+            {open && (
                 <Modal onClose={handleClose}>
-                    <>
+                    <div className="recipeDetailModal">
+                     <h2>{recipe.name}</h2>
+                      <img src={recipe.recipeImage} alt={recipe.name} />
+                      <p>Cook Time: {recipe.timeCook}</p>
+
+                      <h3>Ingredients:</h3>
+                        <ul>
+                {recipe.ingredients?.map((ingredient, index) => (
+                        <li key={index}>{ingredient.name}:{ingredient.preparation}</li>
+                ))}
+                        </ul>
+
+                           <h3>Directions:</h3>
+                           <ol>
+                           {recipe.directions?.map((direction, index) => (
+                             <li key={index}>{direction}</li>
+                ))}
+                              </ol>
+                    </div>
+                   
+                    {/* <>
                         {"hi"}
-                    </>
-                </Modal>}
-        </div>
+                    </> */}
+
+                </Modal>
+             )}
+         </div>
     );
 };
+ 
 
-export default RecipeCard;
+export default RecipeCard; 

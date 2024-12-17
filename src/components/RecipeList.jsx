@@ -7,7 +7,8 @@ const RecipeList = ({ recipes }) => {
             {
                 recipes.map(item => {
                     return (
-                        <RecipeCard key={item.recipeID} recipes={item} />
+                        <RecipeCard key={item.recipeID} 
+                        recipe ={item} />
                     );
                 })
             }

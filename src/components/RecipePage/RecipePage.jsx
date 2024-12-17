@@ -18,17 +18,3 @@ const RecipePage = ({ recipe }) => {
 
 export default RecipePage;
 
-// // 
-// ├── Header
-// │ ├── NavBar
-// │ ├── NavLink (Home, Favorites, Logout)
-// ├── RecipePage
-// │ ├── RecipeHeader
-// │ ├── RecipeTitle
-// │ ├── CookTime
-// │ ├── RecipeContent
-// │ ├── IngredientsList
-// │ ├── IngredientItem
-// │ ├── DirectionsList
-// │ ├── DirectionStep
-// │ ├── RecipeImage
