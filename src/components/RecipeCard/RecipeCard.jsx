@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Modal from '../Modal'
 import RecipeInfo from "./RecipeInfo";
+import RecipePage from '../RecipePage/RecipePage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons'; // Solid heart (filled)
+import { faHeart as faHeartSolid, faXmark } from '@fortawesome/free-solid-svg-icons'; // Solid heart (filled)
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons'; // Regular heart (empty)
 
 
@@ -27,16 +28,17 @@ const RecipeCard = ({ recipe , onFavoriteToggle}) => {
         setOpen(true);
     };
 
-    const handleClose = () => {
+    const handleClose = (e) => {
+        e.stopPropagation();
         setOpen(false);
     };
 
     return (
         <div className="card" onClick={handleOpen}>
             <button
-                onClick={(e) => { 
-                    e.stopPropagation(); // Prevent modal from opening when clicking favorite
-                    toggleFavorite(); // Toggle favorite status
+                onClick={(e) => {
+                    e.stopPropagation()
+                    toggleFavorite(recipe.recipeID)
                 }}
                 className="favorite"
 
@@ -45,36 +47,23 @@ const RecipeCard = ({ recipe , onFavoriteToggle}) => {
             </button>
             <img src={recipe.recipeImage} alt={recipe.name} />
             <RecipeInfo key={recipe.recipeID} name={recipe.name} time={recipe.timeCook} />
-
-            {open && (
-                <Modal onClose={handleClose}>
-                    <div className="recipeDetailModal">
-                     <h2>{recipe.name}</h2>
-                      <img src={recipe.recipeImage} alt={recipe.name} />
-                      <p>Cook Time: {recipe.timeCook}</p>
-
-                      <h3>Ingredients:</h3>
-                        <ul>
-                {recipe.ingredients?.map((ingredient, index) => (
-                        <li key={index}>{ingredient.name}:{ingredient.preparation}</li>
-                ))}
-                        </ul>
-
-                           <h3>Directions:</h3>
-                           <ol>
-                           {recipe.directions?.map((direction, index) => (
-                             <li key={index}>{direction}</li>
-                ))}
-                              </ol>
-                    </div>
-                   
-                    {/* <>
-                        {"hi"}
-                    </> */}
-
-                </Modal>
-             )}
-         </div>
+            {open &&
+                <div className={`absolute inset-0 w-full h-full border-2 border-black rounded-2xl bg-white z-50 m-auto`} >
+                    <span onClick={handleClose}>
+                        <FontAwesomeIcon icon={faXmark} style={{
+                            fontSize: "2rem",
+                            position: 'absolute',
+                            top: "1rem",
+                            right: "1rem",
+                        }} />
+                    </span>
+                    <RecipePage
+                        key={recipe.recipeID}
+                        recipe={recipe}
+                        onClose={handleClose}
+                    />
+                </div>}
+        </div>
     );
 };
  

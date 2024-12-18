@@ -4,7 +4,7 @@ import { recipes } from '../../list'; // stand-in data until we have access to M
 const FavoritesPage = () => {
     return (
         <>
-            <h1>Hearts</h1>
+            <h1>Favorites</h1>
             <RecipeList recipes={recipes} />
         </>
     );
