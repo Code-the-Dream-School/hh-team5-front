@@ -1,14 +1,12 @@
 import { useState } from "react";
-import Modal from '../Modal'
 import RecipeInfo from "./RecipeInfo";
 import RecipePage from '../RecipePage/RecipePage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as faHeartSolid, faXmark } from '@fortawesome/free-solid-svg-icons'; // Solid heart (filled)
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons'; // Regular heart (empty)
 
-
-const RecipeCard = ({ recipe , onFavoriteToggle}) => {
-    // const [recipe, setRecipe] = useState(recipes);
+const RecipeCard = ({ recipes }) => {
+    const [recipe, setRecipe] = useState(recipes);
     const [open, setOpen] = useState(false);
 
     const heartFilled = <FontAwesomeIcon icon={faHeartSolid} style={{
@@ -19,12 +17,10 @@ const RecipeCard = ({ recipe , onFavoriteToggle}) => {
     }} />
 
     const toggleFavorite = (id) => {
-        // setRecipe(prev => prev.recipeID === id ? { ...prev, isFavorite: !prev.isFavorite } : prev)
-        onFavoriteToggle(recipe.recipeID); 
+        setRecipe(prev => prev.recipeID === id ? { ...prev, isFavorite: !prev.isFavorite } : prev)
     };
 
-    const handleOpen = (e) => {
-        e.stopPropagation();  // Prevent click event from bubbling up
+    const handleOpen = () => {
         setOpen(true);
     };
 
@@ -41,11 +37,10 @@ const RecipeCard = ({ recipe , onFavoriteToggle}) => {
                     toggleFavorite(recipe.recipeID)
                 }}
                 className="favorite"
-
             >
                 {recipe.isFavorite ? heartFilled : heartEmpty}
             </button>
-            <img src={recipe.recipeImage} alt={recipe.name} />
+            <img src={recipe.recipeImage} />
             <RecipeInfo key={recipe.recipeID} name={recipe.name} time={recipe.timeCook} />
             {open &&
                 <div className={`absolute inset-0 w-full h-full border-2 border-black rounded-2xl bg-white z-50 m-auto`} >
@@ -66,6 +61,5 @@ const RecipeCard = ({ recipe , onFavoriteToggle}) => {
         </div>
     );
 };
- 
 
-export default RecipeCard; 
+export default RecipeCard;
