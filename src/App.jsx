@@ -23,7 +23,7 @@ function App() {
         setRecipeData({
           title: myData.data.title,
           cookTime: myData.data.cookTime,
-          ingredients: myData.data.ingridients,
+          ingredients: myData.data.ingredients,
           steps: myData.data.steps,
           image: myData.data.image,
         });
