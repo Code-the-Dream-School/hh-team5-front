@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Modal from '../Modal'
 import RecipeInfo from "./RecipeInfo";
 import RecipePage from '../RecipePage/RecipePage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
