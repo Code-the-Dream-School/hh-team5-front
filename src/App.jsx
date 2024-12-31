@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { getAllData } from "./util/index";
 import Header from "./components/Header/Header.jsx";
 import RecipePage from "./components/RecipePage/RecipePage.jsx";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { getAllData } from './util/index';
+import Homepage from './components/Homepage/Homepage.jsx'
+import FavoritesPage from "./components/FavoritesPage/FavoritesPage.jsx";
+
+
 
 const URL = "http://localhost:8000/api/v1/";
 
@@ -21,7 +25,7 @@ function App() {
         setRecipeData({
           title: myData.data.title,
           cookTime: myData.data.cookTime,
-          ingridients: myData.data.ingridients,
+          ingredients: myData.data.ingredients,
           steps: myData.data.steps,
           image: myData.data.image,
         });
@@ -38,12 +42,11 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
+      <h1>{message}</h1>
       <Routes>
-        <Route path="/" element={<h1>{message}</h1>} />
-        <Route
-          path="/recipe"
-          element={recipeData && <RecipePage recipe={recipeData} />}
-        />
+        <Route path='/' element={<Homepage />} />
+        <Route path='FindARecipe' element={<h1>Find A Recipe</h1>} />
+        <Route path='Favorites' element={<FavoritesPage />} />
       </Routes>
     </BrowserRouter>
   );

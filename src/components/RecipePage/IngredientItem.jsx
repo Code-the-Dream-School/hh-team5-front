@@ -2,7 +2,10 @@
 import React from 'react';
 
 const IngredientItem = ({ ingredient }) => {
-  return <li>{ingredient}</li>;
+  // destructuring ingredient object
+  let { name, preparation } = ingredient;
+
+  return <li>{`${name} (${preparation})`}</li>;
 };
 
 export default IngredientItem;

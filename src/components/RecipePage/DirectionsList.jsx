@@ -7,9 +7,9 @@ const DirectionsList = ({ steps }) => {
     <div className="directions-list">
       <h3>Directions</h3>
       <ol>
-        {steps.map((step, index) => (
-          <DirectionStep key={index} step={step} />
-        ))}
+        {steps.map((step, index) => {
+          return(<DirectionStep key={index} step={step} />)
+})}
       </ol>
     </div>
   );
