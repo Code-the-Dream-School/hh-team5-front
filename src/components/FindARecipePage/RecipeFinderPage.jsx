@@ -7,17 +7,15 @@ const RecipeFinderPage = () => {
   const [selectedIngredients, setSelectedIngredients] = useState([])
 
   const handleAddIngredient = (id) => {
-    const selectedIngredientsList = commonIngredients.find((item) => item.id === id);
+    const selectedIngredient = commonIngredients.find((item) => item.id === id)
 
-    if (selectedIngredients.filter((item) => item.id === id)) {
-      setSelectedIngredients([...selectedIngredients, selectedIngredientsList])
+    if (selectedIngredient && !selectedIngredients.some((item) => item.id === id)){
+      setSelectedIngredients([...selectedIngredients, selectedIngredient])
     }
   }
 
   const handleRemoveIngredient = (id) => {
-    setSelectedIngredients(
-      selectedIngredients.filter((ingredient) => ingredient.id !== id)
-    )
+    setSelectedIngredients(selectedIngredients.filter((ingredient) => ingredient.id !== id))
   }
 
   return (
