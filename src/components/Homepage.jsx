@@ -28,9 +28,10 @@ const Homepage = () => {
         <ul class="flex flex-col md:flex-row">
           {routeCards.map((routeCard) => (
             <li class="rounded-[20px] drop-shadow-md m-6 md:bg-yellow md:p-8" key={routeCard.id}>
-              <Link to={routeCard.link}>
+              <Link to={routeCard.link} class="group">
                 <div class="rounded-[15px] drop-shadow-md p-16 bg-contain bg-no-repeat relative md:px-0 py-16" style={{ backgroundImage: `url(${routeCard.image})`, backgroundSize:'100% 100%'}}>
                   <h2 class="bg-black font-heading text-white text-2xl w-full text-center p-6 md:px-0 py-2">{routeCard.title}</h2> 
+                  <p className="hidden group-hover:flex font-body text-center text-black absolute inset-0 items-center justify-center bg-yellow rounded-[15px] p-4 md:invisible">{routeCard.description}</p>
                 </div>
                 <p class="font-body text-center mt-6 hidden md:block">{routeCard.description}</p>
               </Link>
