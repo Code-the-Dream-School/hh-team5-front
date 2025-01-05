@@ -25,14 +25,14 @@ const Homepage = () => {
     <div class="bg-green min-h-screen flex items-center flex-col p-4">
       <h1 class="font-heading text-white text-4xl w-full text-center py-2 mt-12 mb-8">Hello, Chef.</h1>
       <div class="max-w-4xl m-4">
-        <ul class="flex flex-row">
+        <ul class="flex flex-col md:flex-row">
           {routeCards.map((routeCard) => (
-            <li class="bg-yellow rounded-[20px] drop-shadow-md p-8 m-6" key={routeCard.id}>
+            <li class="rounded-[20px] drop-shadow-md m-6 md:bg-yellow md:p-8" key={routeCard.id}>
               <Link to={routeCard.link}>
-                <div class="rounded-[15px] drop-shadow-md py-16 bg-contain bg-no-repeat" style={{ backgroundImage: `url(${routeCard.image})`, backgroundSize:'100% 100%'}}>
-                  <h2 class="bg-black font-heading text-white text-2xl w-full text-center py-2">{routeCard.title}</h2> 
+                <div class="rounded-[15px] drop-shadow-md p-16 bg-contain bg-no-repeat relative md:px-0 py-16" style={{ backgroundImage: `url(${routeCard.image})`, backgroundSize:'100% 100%'}}>
+                  <h2 class="bg-black font-heading text-white text-2xl w-full text-center p-6 md:px-0 py-2">{routeCard.title}</h2> 
                 </div>
-                <p class="font-body text-center mt-6">{routeCard.description}</p>
+                <p class="font-body text-center mt-6 hidden md:block">{routeCard.description}</p>
               </Link>
             </li>
             ))
