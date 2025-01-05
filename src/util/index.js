@@ -1,25 +1,37 @@
-import axios from "axios";
- 
-// note: not used, but could be used with GET with params
- const getData = async (url, params) => {
-    try {
-      let res = await axios.get(url, params);
-      let data = await res.data;
-      return data;
-    } catch (error) {
-      console.log(error, `error - getData in ${url} route`);
-    }
-  };
+import axios from 'axios';
 
-  const getAllData = async (url) => {
-    try {
-      let res = await axios.get(url);
-      let data = await res.data;
-      return data;
-    } catch (error) {
-      console.log(error, `error - getAllData in ${url} route`);
-    }
-  };
+const api = axios.create({
+  baseURL: 'http://localhost:8000/api/v1', // Backend API URL
+  withCredentials: true,
+  timeout: 10000, // Timeout after 10 seconds
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
+// // Intercept requests or responses (e.g., to add authorization headers)
+// api.interceptors.request.use(
+//   (config) => {
+//     // Get the token from localStorage or sessionStorage
+//     const token = localStorage.getItem('token') || sessionStorage.getItem('token');
 
-  export {getData, getAllData};
+//     // If the token exists, add it to the Authorization header
+//     if (token) {
+//       config.headers.Authorization = `Bearer ${token}`;
+//     }
+
+//     return config;
+//   },
+//   (error) => Promise.reject(error) // Handle request errors
+// );
+
+// // Handling response errors globally
+// api.interceptors.response.use(
+//   (response) => response,
+//   (error) => {
+//     console.error('API error:', error.response || error.message);
+//     return Promise.reject(error);
+//   }
+// );
+
+export default api;
