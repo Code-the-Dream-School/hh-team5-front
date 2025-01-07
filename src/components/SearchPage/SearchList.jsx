@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import api from "../util"
-import RecipeList from "./RecipeList"
+import api from "../../util"
+import RecipeList from "../RecipeList"
 
 const SearchList = ({ ingredients }) => {
     const [matchRecipes, setMatchRecipes] = useState([])
