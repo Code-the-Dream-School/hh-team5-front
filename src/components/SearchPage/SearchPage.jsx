@@ -1,15 +1,18 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import CommonIngredients from './CommonIngredients.jsx'
+import { commonIngredients } from "../../commoningredients";
 import RecipeSearch from "./RecipeSearch";
 
-import PropTypes from 'prop-types'
-import React from 'react'
-
 const SearchPage = () => {
-    return (
-        <>
-            <div>SearchPage</div>
-            <RecipeSearch />
-        </>
-    )
+  return (
+    <>
+      <div class="bg-yellow min-h-screen flex items-center flex-col p-4">
+        <CommonIngredients commonIngredients={commonIngredients}/>
+        <RecipeSearch />
+      </div>
+    </>
+  )
 }
 
 export default SearchPage
