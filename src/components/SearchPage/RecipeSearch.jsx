@@ -15,7 +15,7 @@ const RecipeSearch = ({ commonIngredients, handleAddIngredient, selectedIngredie
     if (searchIngredient) {
       const isAlreadySelected = selectedIngredients.some((item) => item.id === searchIngredient.id)
       if (!isAlreadySelected) {
-        handleAddIngredient(searchIngredient.id)
+        handleAddIngredient(searchIngredient)
       } 
     } 
     else {
