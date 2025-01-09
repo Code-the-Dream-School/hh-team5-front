@@ -1,8 +1,7 @@
 import React from "react";
 import AddCommonIngredient from "./AddCommonIngredient";
 
-
-const CommonIngredients = ({commonIngredients, handleAddIngredient}) => {
+const CommonIngredients = ({commonIngredients, handleAddCommonIngredient}) => {
   return (
     <div class="flex flex-col items-center">
       <h2 class="font-heading text-black text-xl w-full text-center m-2">Add a common ingredient:</h2>
@@ -11,7 +10,7 @@ const CommonIngredients = ({commonIngredients, handleAddIngredient}) => {
           <AddCommonIngredient 
             key={ingredient.id}
             ingredient={ingredient}
-            handleAddIngredient={handleAddIngredient}
+            handleAddCommonIngredient={handleAddCommonIngredient}
           />
           ))
         }
