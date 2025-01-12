@@ -59,25 +59,25 @@ const Homepage = () => {
 
 
   return (
-    <div class="bg-green min-h-screen flex items-center flex-col p-4">
-      <h1 class="font-heading text-white text-4xl w-full text-center py-2 mt-12 mb-8">Hello, Chef.</h1>
-      <div class="max-w-4xl m-4">
-        <ul class="flex flex-row">
+    <div className="bg-green min-h-screen flex items-center flex-col p-4">
+      <h1 className="font-heading text-white text-4xl w-full text-center py-2 mt-12 mb-8">Hello, Chef.</h1>
+      <div className="max-w-4xl m-4">
+        <ul className="flex flex-row">
           {routeCards.map((routeCard) => (
-            <li key={routeCard.id} class="bg-yellow rounded-[20px] drop-shadow-md p-8 m-6">
+            <li key={routeCard.id} className="bg-yellow rounded-[20px] drop-shadow-md p-8 m-6">
               {routeCard.link === "/favorites" ? (
                  <div onClick={(e) => handleFavoritesClick(e)} className={`hover:cursor-pointer`} >
-                 <div class="rounded-[15px] drop-shadow-md py-16 bg-contain bg-no-repeat" style={{ backgroundImage: `url(${routeCard.image})`, backgroundSize:'100% 100%'}}>
-                   <h2 class="bg-black font-heading text-white text-2xl w-full text-center py-2">{routeCard.title}</h2>
+                 <div className="rounded-[15px] drop-shadow-md py-16 bg-contain bg-no-repeat" style={{ backgroundImage: `url(${routeCard.image})`, backgroundSize:'100% 100%'}}>
+                   <h2 className="bg-black font-heading text-white text-2xl w-full text-center py-2">{routeCard.title}</h2>
                  </div>
-                 <p class="font-body text-center mt-6">{routeCard.description}</p>
+                 <p className="font-body text-center mt-6">{routeCard.description}</p>
                </div>
               ) : (
                 <Link to={routeCard.link}>
-                <div class="rounded-[15px] drop-shadow-md py-16 bg-contain bg-no-repeat" style={{ backgroundImage: `url(${routeCard.image})`, backgroundSize:'100% 100%'}}>
-                  <h2 class="bg-black font-heading text-white text-2xl w-full text-center py-2">{routeCard.title}</h2>
+                <div className="rounded-[15px] drop-shadow-md py-16 bg-contain bg-no-repeat" style={{ backgroundImage: `url(${routeCard.image})`, backgroundSize:'100% 100%'}}>
+                  <h2 className="bg-black font-heading text-white text-2xl w-full text-center py-2">{routeCard.title}</h2>
                 </div>
-                <p class="font-body text-center mt-6">{routeCard.description}</p>
+                <p className="font-body text-center mt-6">{routeCard.description}</p>
               </Link>
             )}
             </li>

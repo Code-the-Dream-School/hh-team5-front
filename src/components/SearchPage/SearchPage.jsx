@@ -27,7 +27,7 @@ const SearchPage = () => {
 
   return (
     <>
-      <div class="bg-yellow min-h-screen flex items-center flex-col p-4">
+      <div className="bg-yellow min-h-screen flex items-center flex-col p-4">
         <CommonIngredients commonIngredients={commonIngredients} handleAddCommonIngredient={handleAddCommonIngredient} />
         <RecipeSearch commonIngredients={commonIngredients} handleAddIngredient={handleAddIngredient} selectedIngredients={selectedIngredients} />
         <SelectedIngredientsList selectedIngredients={selectedIngredients} handleRemoveIngredient={handleRemoveIngredient} />
