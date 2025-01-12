@@ -16,6 +16,8 @@ const SearchList = ({ selectedIngredients }) => {
 
   const fetchData = async () => {
     try {
+      setMatchRecipes([])
+
       const selectedIngredientsArr = selectedIngredients.map((ingredient) => ingredient.title)
       console.log(selectedIngredientsArr)
 
