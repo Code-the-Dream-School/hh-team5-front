@@ -4,6 +4,7 @@ import CommonIngredients from './CommonIngredients.jsx';
 import { commonIngredients } from "../../commoningredients";
 import RecipeSearch from "./RecipeSearch";
 import SelectedIngredientsList from './SelectedIngredientsList.jsx';
+import SearchList from './SearchList.jsx';
 
 const SearchPage = () => {
   const [selectedIngredients, setSelectedIngredients] = useState([])
@@ -30,6 +31,7 @@ const SearchPage = () => {
         <CommonIngredients commonIngredients={commonIngredients} handleAddCommonIngredient={handleAddCommonIngredient} />
         <RecipeSearch commonIngredients={commonIngredients} handleAddIngredient={handleAddIngredient} selectedIngredients={selectedIngredients} />
         <SelectedIngredientsList selectedIngredients={selectedIngredients} handleRemoveIngredient={handleRemoveIngredient} />
+        <SearchList selectedIngredients={selectedIngredients} />
       </div>
     </>
   )
