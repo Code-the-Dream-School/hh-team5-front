@@ -24,8 +24,13 @@ const SearchList = ({ selectedIngredients }) => {
 
       const res = await api.get('/search', {params})
       console.log(res.data)
-
-      setMatchRecipes(res.data.data)
+    
+      if (res.data.data.length === 0){
+        alert("No recipes found")
+      }
+      else {
+        setMatchRecipes(res.data.data)
+      }
     } 
     catch (error) {
       console.error('Failed to fetch matching recipes', error);
