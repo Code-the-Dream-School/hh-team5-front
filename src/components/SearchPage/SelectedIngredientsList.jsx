@@ -6,7 +6,7 @@ const removeButton = <FontAwesomeIcon icon={faTrashCan} />
 
 const SelectedIngredientsList = ({selectedIngredients, handleRemoveIngredient, handleClearAllIngredients}) => {
   return (
-    <div className="flex flex-col">   
+    <div className="flex flex-col m-4">   
       <p className="font-heading text-black text-2xl text-center m-2 mt-10">Selected ingredients:</p>
       <ul className="flex flex-row">
         {selectedIngredients.map((ingredient) => (

@@ -26,8 +26,8 @@ const RecipeList = ({ recipes }) => {
   };
 
   return (
-    <div className="flex flex-col items-center max-h-screen">
-      <div className="flex justify-center m-4">
+    <div className="flex flex-col items-center">
+      <div className="flex justify-center mt-20">
         {currentRecipes.map((item) => (<RecipeCard key={item.recipeID} recipes={item} />))}
       </div>
       <div className="flex flex-row font-heading text-xl justify-evenly fixed bottom-0 mb-10">
