@@ -32,19 +32,18 @@ const RecipeSearch = ({ commonIngredients, handleAddIngredient, selectedIngredie
   }
 
   return (
-    <form onSubmit={handleSearch}>
-      <label className="text-xl">Search for Ingredients</label>
-      <br />
-      <span className="focus-within:ring-2 focus-within:ring-blue-400 rounded-md focus-within:shadow-md focus-within:shadow-blue-400">
+    <form className="flex flex-col items-center mt-4" onSubmit={handleSearch}>
+      <label className="font-heading text-black text-xl text-center m-2">Search for Ingredients:</label>
+      <span className="flex flex-row px-2 justify-evenly bg-white focus-within:ring-2 focus-within:ring-blue-400 rounded-md focus-within:shadow-s focus-within:shadow-blue-400 border-gray-400 border-[0.5px]">
         <input
-          className="border-none focus:ring-0 outline-none rounded-l-md"
+          className="py-1 border-none focus:ring-0 outline-none rounded-l-md"
           id="ingredients"
           type="text"
           autoFocus
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button className="bg-white rounded-r-md px-2">
+        <button className="bg-white rounded-r-md">
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
       </span>
