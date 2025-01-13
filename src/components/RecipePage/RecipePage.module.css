@@ -1,0 +1,120 @@
+
+ .recipeOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+.recipePage {
+  display: flex;
+  flex-direction: row; 
+  justify-content:flex-start;
+  gap: 20px; 
+  background-color: #f9f5e7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 80%;
+  margin: auto;
+  position: relative;
+  z-index: 1000;
+  overflow: hidden;
+  align-items: center;
+}
+
+.recipeImage {
+  width: 300px;
+  height: auto;
+  align-self: center;
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-top: 0;
+}
+
+.recipeContent {
+  flex: 1;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  text-align: left;
+}
+
+.recipe-header h1 {
+  font-family: 'Georgia', serif;
+  font-size: 40px;
+  color: #000000;
+  font-weight: bold;
+  text-align: left;
+}
+
+.ingredients-list,
+.directions-list {
+  margin: 10px 0;
+  padding: 0;
+  list-style-position: inside;
+}
+
+.ingredients-list li,
+.directions-list li {
+  margin-bottom: 8px;
+}
+
+.recipe-page span {
+  font-size: 2rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.nav-bar {
+  position: fixed;
+  left: 0;
+  background-color: #8bc34a; /* Green background */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed; /* Fix nav at the top */
+  width: 100%; /* Make nav bar span the entire width */
+  top: 0; /* Ensure it's at the top */
+  z-index: 1001; /* Ensure it stays on top */
+}
+
+.nav-bar a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  margin: 0 10px;
+}
+
+.nav-bar a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile responsive layout */
+@media (max-width: 768px) {
+  .recipe-page {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    max-width: 100%;
+    margin: 20px;
+  }
+
+  .recipe-image,
+  .recipe-content {
+    max-width: 100%;
+  }
+
+  .recipe-image {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}

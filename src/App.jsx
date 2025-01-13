@@ -6,11 +6,13 @@ import Homepage from './components/Homepage/Homepage.jsx'
 import FavoritesPage from "./components/FavoritesPage/FavoritesPage.jsx";
 
 
+
 const URL = "http://localhost:8000/api/v1/";
 
 function App() {
   const [message, setMessage] = useState("");
   const [recipeData, setRecipeData] = useState(null);
+  const [error,setError] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -28,7 +30,8 @@ function App() {
           image: myData.data.image,
         });
       } catch (error) {
-        console.error("Error fetching data", error);
+        setError("Failed to fetch data. Please try again later.");
+        console.log("Error fetching data", error);
       }
     })();
 
