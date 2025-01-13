@@ -5,7 +5,7 @@ import DirectionsList from './DirectionsList';
 
 const RecipeContent = ({ ingredients, steps }) => {
   return (
-    <div className="recipe-content">
+    <div className="recipeContent">
       <IngredientsList ingredients={ingredients} />
       <DirectionsList steps={steps} />
     </div>
