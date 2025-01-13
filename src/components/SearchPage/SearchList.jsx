@@ -41,7 +41,7 @@ const SearchList = ({ selectedIngredients }) => {
 
   return (
     <>
-      <button className="font-heading rounded-[10px] bg-green text-white text-xl p-2 px-8 mt-4" onClick={handleRecipeSearch}>Find A Recipe</button>
+      <button className="font-heading rounded-[10px] bg-green text-white text-xl p-2 px-8 mt-10" onClick={handleRecipeSearch}>Find A Recipe</button>
       <RecipeList recipes={matchRecipes} />
     </>
   )
