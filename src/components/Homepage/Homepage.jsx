@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
-import foodcollage from '/images/foodcollage.png'
+import ingredients from '/images/ingredients.jpg';
 import meatballs from '/images/meatballs.png'
 import Login from "../Login";
 import api from "../../util";
@@ -15,7 +15,7 @@ const Homepage = () => {
     {
       id: 1,
       title: "Find a Recipe",
-      image: foodcollage,
+      image: ingredients,
       description: `Find a recipe by entering 3-5 ingredients from your pantry and discover delicious dishes you can make. It’s a simple way to turn what you have on hand into mealtime inspiration!`,
       link: "/findarecipe",
     },
@@ -60,9 +60,9 @@ const Homepage = () => {
 
   return (
     <div className="bg-green min-h-screen flex items-center flex-col p-4">
-      <h1 className="font-heading text-white text-4xl w-full text-center py-2 mt-12 mb-8">Hello, Chef.</h1>
-      <div className="max-w-4xl m-4">
-        <ul className="flex flex-row">
+      <h1 className="font-heading text-white text-4xl w-full text-center py-2 mt-6 md:mt-12 md:mb-8">Hello, Chef.</h1>
+      <div className="max-w-4xl md:m-4">
+        <ul className="flex flex-col md:flex-row">
           {routeCards.map((routeCard) => (
             <li key={routeCard.id} className="bg-yellow rounded-[20px] drop-shadow-md p-8 m-6">
               {routeCard.link === "/favorites" ? (
