@@ -25,12 +25,16 @@ const SearchPage = () => {
     setSelectedIngredients(selectedIngredients.filter((ingredient) => ingredient.id !== id))
   }
 
+  const handleClearAllIngredients = () => {
+    setSelectedIngredients([])
+  }
+
   return (
     <>
       <div class="bg-yellow min-h-screen flex items-center flex-col p-4">
         <CommonIngredients commonIngredients={commonIngredients} handleAddCommonIngredient={handleAddCommonIngredient} />
         <RecipeSearch commonIngredients={commonIngredients} handleAddIngredient={handleAddIngredient} selectedIngredients={selectedIngredients} />
-        <SelectedIngredientsList selectedIngredients={selectedIngredients} handleRemoveIngredient={handleRemoveIngredient} />
+        <SelectedIngredientsList selectedIngredients={selectedIngredients} handleRemoveIngredient={handleRemoveIngredient} handleClearAllIngredients={handleClearAllIngredients} />
         <SearchList selectedIngredients={selectedIngredients} />
       </div>
     </>

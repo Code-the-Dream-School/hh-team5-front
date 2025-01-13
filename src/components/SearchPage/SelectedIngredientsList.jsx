@@ -4,7 +4,7 @@ import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
 
 const removeButton = <FontAwesomeIcon icon={faTrashCan} />
 
-const SelectedIngredientsList = ({selectedIngredients, handleRemoveIngredient}) => {
+const SelectedIngredientsList = ({selectedIngredients, handleRemoveIngredient, handleClearAllIngredients}) => {
   return (
     <div class="flex flex-row justify-start">   
       <p class="font-heading text-black text-xl w-full text-center m-2">Selected ingredients:</p>
@@ -16,8 +16,11 @@ const SelectedIngredientsList = ({selectedIngredients, handleRemoveIngredient}) 
           </li>
         ))}
       </ul>
+      {selectedIngredients.length > 0 && (
+        <button type="button" className="rounded-[30px] min-w-[102.67px] bg-red-500 text-white px-2 m-2" onClick={handleClearAllIngredients}>Clear All</button>
+      )}
     </div>
-  );
+  )
 }
 
 export default SelectedIngredientsList
