@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import Header from "../Header/Header";
 import ingredients from '/images/ingredients.jpg';
 import meatballs from '/images/meatballs.png'
 import Login from "../Login";
@@ -59,7 +60,8 @@ const Homepage = () => {
 
 
   return (
-    <div className="bg-green min-h-screen flex items-center flex-col p-4">
+    <div className="bg-green min-h-screen flex items-center flex-col">
+      <Header />
       <h1 className="font-heading text-white text-4xl w-full text-center py-2 mt-6 md:mt-12 md:mb-8">Hello, Chef.</h1>
       <div className="max-w-4xl md:m-4">
         <ul className="flex flex-col md:flex-row">

@@ -3,7 +3,7 @@ import NavLink from './NavLink';
 
 const Header = () => {
   return (
-    <header>
+    <header className="w-full">
       <NavLink />
     </header>
   );

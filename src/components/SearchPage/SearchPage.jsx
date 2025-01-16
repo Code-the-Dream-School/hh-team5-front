@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
+import Header from '../Header/Header.jsx';
 import CommonIngredients from './CommonIngredients.jsx';
 import { commonIngredients } from "../../commoningredients";
 import RecipeSearch from "./RecipeSearch";
@@ -31,7 +32,8 @@ const SearchPage = () => {
 
   return (
     <>
-      <div className="bg-yellow min-h-screen flex items-center flex-col p-4">
+      <div className="bg-yellow min-h-screen flex flex-col items-center">
+        <Header />
         <CommonIngredients commonIngredients={commonIngredients} handleAddCommonIngredient={handleAddCommonIngredient} />
         <RecipeSearch commonIngredients={commonIngredients} handleAddIngredient={handleAddIngredient} selectedIngredients={selectedIngredients} />
         <SelectedIngredientsList selectedIngredients={selectedIngredients} handleRemoveIngredient={handleRemoveIngredient} handleClearAllIngredients={handleClearAllIngredients} />
