@@ -42,8 +42,8 @@ const RecipeCard = ({ recipes }) => {
             </button>
             <img src={recipe.recipeImage} />
             <RecipeInfo key={recipe.recipeID} name={recipe.name} time={recipe.timeCook} />
-            {open &&
-                <div className={`absolute inset-0 w-full h-full border-2 border-black rounded-2xl bg-white z-50 m-auto`} >
+            {open && 
+                 <div className="recipePage" onClick={(e) => e.stopPropagation()}> 
                     <span onClick={handleClose}>
                         <FontAwesomeIcon icon={faXmark} style={{
                             fontSize: "2rem",
@@ -56,7 +56,7 @@ const RecipeCard = ({ recipes }) => {
                         key={recipe.recipeID}
                         recipe={recipe}
                         onClose={handleClose}
-                    />
+                    />                 
                 </div>}
         </div>
     );
