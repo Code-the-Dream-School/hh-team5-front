@@ -14,8 +14,8 @@ img {
 .favorite {
   background-color: white;
   position: relative;
-  top: 2.8rem;
-  left: 5.9rem;
+  top: 3rem;
+  left: 6.8rem;
   border-radius: 6rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -33,7 +33,7 @@ img {
 
 .card {
   height: 18rem;
-  width: 15.5rem;
+  width: 17rem;
   margin: 0rem 0.25rem;
   text-align: center;
 }

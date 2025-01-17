@@ -26,13 +26,14 @@ const RecipeList = ({ recipes }) => {
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="flex justify-center mt-20">
+    <div className="flex flex-col items-center mt-10">
+      <p className="font-heading text-black text-2xl mt-10">Recipes found:</p>
+      <div className="flex flex-wrap justify-center max-w-full gap-4">
         {currentRecipes.map((item) => (<RecipeCard key={item.recipeID} recipes={item} />))}
       </div>
-      <div className="flex flex-row font-heading text-xl justify-evenly fixed bottom-0 mb-10">
+      <div className="flex flex-row font-heading text-xl justify-evenly mb-4 mt-16">
         <button onClick={prevPage} disabled={currentPage === 1}>Previous</button>
-        <span className="mx-10" >Page {currentPage} of {Math.ceil(recipes.length / recipesPerPage)}</span>
+        <span className="mx-16">Page {currentPage} of {Math.ceil(recipes.length / recipesPerPage)}</span>
         <button onClick={nextPage} disabled={currentPage === Math.ceil(recipes.length / recipesPerPage)}>Next</button>
       </div>
     </div>

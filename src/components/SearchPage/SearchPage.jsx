@@ -31,15 +31,17 @@ const SearchPage = () => {
   }
 
   return (
-    <>
-      <div className="bg-yellow min-h-screen flex flex-col items-center">
-        <Header />
+    <div className="bg-yellow min-h-screen flex flex-col items-center">
+      <Header />
+      <div className="flex-grow">
         <CommonIngredients commonIngredients={commonIngredients} handleAddCommonIngredient={handleAddCommonIngredient} />
         <RecipeSearch commonIngredients={commonIngredients} handleAddIngredient={handleAddIngredient} selectedIngredients={selectedIngredients} />
         <SelectedIngredientsList selectedIngredients={selectedIngredients} handleRemoveIngredient={handleRemoveIngredient} handleClearAllIngredients={handleClearAllIngredients} />
+      </div>
+      <div>
         <SearchList selectedIngredients={selectedIngredients} />
       </div>
-    </>
+    </div>
   )
 }
 

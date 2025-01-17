@@ -6,12 +6,12 @@ const removeButton = <FontAwesomeIcon icon={faTrashCan} />
 
 const SelectedIngredientsList = ({selectedIngredients, handleRemoveIngredient, handleClearAllIngredients}) => {
   return (
-    <div className="flex flex-col m-4">   
-      <p className="font-heading text-black text-2xl text-center m-2 mt-10">Selected ingredients:</p>
-      <ul className="flex flex-row">
+    <div className="flex flex-row m-4">   
+      <p className="font-heading text-black text-2xl text-center self-center m-2">Selected ingredients:</p>
+      <ul className="grid grid-cols-6 max-w-4xl items-center">
         {selectedIngredients.map((ingredient) => (
-          <li key={ingredient.id} className="flex flex-row max-w-52 rounded-[30px] min-w-[102.67px] justify-between bg-teal text-white px-2 m-2">
-            <span className="pl-2 pb-1">{ingredient.title}</span>
+          <li key={ingredient.id} className="flex flex-row max-w-52 rounded-[30px] min-w-[102.67px] justify-between bg-teal text-white px-2 mx-2 my-6">
+            <span className="px-2 pb-1">{ingredient.title}</span>
             <button type="button" onClick={() => handleRemoveIngredient(ingredient.id)}>{removeButton}</button>
           </li>
         ))}
