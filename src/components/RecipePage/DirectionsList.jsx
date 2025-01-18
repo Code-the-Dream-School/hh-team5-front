@@ -5,7 +5,7 @@ import DirectionStep from './DirectionStep';
 const DirectionsList = ({ steps }) => {
   return (
     <div className="directions-list">
-      <h3>Directions</h3>
+      <h3 style={{fontSize:'25px'}}>Directions</h3>
       <ol>
         {steps.map((step, index) => {
           return(<DirectionStep key={index} step={step} />)

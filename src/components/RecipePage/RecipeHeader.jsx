@@ -4,8 +4,8 @@ import React from 'react';
 const RecipeHeader = ({ title, cookTime }) => {
   return (
     <div className="recipe-header">
-      <h1>{title}</h1>
-      <p>Cook Time: {cookTime}</p>
+      <h1 style={{ color: 'black',fontSize: '40px' }}>{title}</h1>
+      <p style={{ textAlign: 'left' }}>Cook Time: {cookTime}</p>
     </div>
   );
 };

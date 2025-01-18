@@ -5,7 +5,7 @@ const IngredientItem = ({ ingredient }) => {
   // destructuring ingredient object
   let { name, preparation } = ingredient;
 
-  return <li>{`${name} (${preparation})`}</li>;
+  return <li style={{ backgroundColor: '#f9f5e7'}}> {`${name} (${preparation})`}</li>;
 };
 
 export default IngredientItem;

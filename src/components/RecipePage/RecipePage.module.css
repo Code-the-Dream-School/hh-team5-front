@@ -1,0 +1,137 @@
+.recipeOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.recipePage {
+  position: fixed; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  background-color: #f9f5e7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  max-height: 80%;
+  z-index: 2100; 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  overflow: auto;
+}
+
+.recipeImage {
+  width: auto;
+  max-width: 200px; 
+  height: auto; 
+  align-self: center;
+  margin: 0 ; 
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.recipeContent {
+  padding: 20px;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #333;
+  text-align: left;
+  max-width: 600px; 
+  margin-left: 20px;
+ 
+}
+
+/* .recipe-header h1 {
+  font-size: 40px;
+  color: black;
+  font-weight: bold;
+  text-align: left;
+} */
+
+/* Ingredient Item Styles */
+.ingredient-item {
+  list-style-type: none; /* Removes bullet points */
+  margin-bottom: 8px; 
+  font-size: 1rem; 
+  text-align: left; 
+  background-color: #f9f5e7;
+}
+
+.ingredients-list,
+.directions-list {
+  width: 100%;
+  margin: 10px 0;
+  padding: 0;
+  list-style-position: inside;
+  display: block;
+
+}
+
+.ingredients-list li,
+.directions-list li {
+  margin-bottom: 8px;
+  line-height: 1.2;
+  
+}
+
+.recipePage span {
+  font-size: 2rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* Mobile responsive layout */
+@media (max-width: 768px) {
+  .recipePage {
+      flex-direction: column;  
+      width: 90%;             
+      gap: 20px;            
+      margin: 0;               
+      padding: 20px;    
+      max-height: 90%;    
+      overflow: auto; 
+  }
+
+  /* Image should take up full width, on top */
+  .recipeImage {
+      width: 100%;     
+      height: auto;   
+      max-height: 300px;
+      margin: 0 auto 20px;
+      /* margin-bottom: 20px;     */
+      object-fit: cover;
+  }
+
+  /* Recipe content should be centered and take full width */
+  .recipeContent {
+      width: 100%;       
+      padding: 10px;          
+      font-size: 14px;   
+      text-align: left;     
+      max-height: none;
+      line-height: 1.2;
+  }
+
+  /* Adjust overlay */
+  .recipeOverlay {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5); 
+      z-index: 1000;
+  }
+}

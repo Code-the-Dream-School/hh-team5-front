@@ -1,0 +1,20 @@
+/* Nav Bar Styling */
+.nav-bar {
+    background-color: #8bc34a; /* Green background */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .nav-bar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 0 10px;
+  }
+  
+  .nav-bar a:hover {
+    text-decoration: underline;
+  }
+  
