@@ -4,6 +4,7 @@ import RecipeList from "../RecipeList"
 
 const SearchList = ({ selectedIngredients }) => {
   const [matchRecipes, setMatchRecipes] = useState([])
+  const [searchedRecipes, setSearchedRecipes] = useState(false)
 
   const handleRecipeSearch = (e) => {
     e.preventDefault()
@@ -11,6 +12,7 @@ const SearchList = ({ selectedIngredients }) => {
       alert("Please enter at least 3 ingredients");
       return;
     }
+    setSearchedRecipes(true)
     fetchData()
   }
 
@@ -40,9 +42,11 @@ const SearchList = ({ selectedIngredients }) => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-between">
+    <div className="flex flex-col items-center">
       <button className="font-heading rounded-[10px] bg-green text-white text-xl p-2 px-16 mt-2" onClick={handleRecipeSearch}>Find A Recipe</button>
-      <RecipeList recipes={matchRecipes} />
+      {searchedRecipes && matchRecipes.length > 0 && (
+        <RecipeList recipes={matchRecipes} />
+      )}
     </div>
   )
 }
