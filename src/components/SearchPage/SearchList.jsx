@@ -5,13 +5,19 @@ import RecipeList from "../RecipeList"
 const SearchList = ({ selectedIngredients }) => {
   const [matchRecipes, setMatchRecipes] = useState([])
   const [searchedRecipes, setSearchedRecipes] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
 
   const handleRecipeSearch = (e) => {
     e.preventDefault()
     if (selectedIngredients.length < 3) {
-      alert("Please enter at least 3 ingredients");
+      setErrorMessage("Please enter at least 3 ingredients.");
       return;
     }
+    if (selectedIngredients.length > 5) {
+      setErrorMessage("You can enter a maximum of 5 ingredients.");
+      return;
+    }
+    setErrorMessage("")
     setSearchedRecipes(true)
     fetchData()
   }
@@ -30,7 +36,7 @@ const SearchList = ({ selectedIngredients }) => {
       console.log(res.data)
     
       if (res.data.data.length === 0){
-        alert("No recipes found")
+        setErrorMessage("No recipes found.")
       }
       else {
         setMatchRecipes(res.data.data)
@@ -43,6 +49,7 @@ const SearchList = ({ selectedIngredients }) => {
 
   return (
     <div className="flex flex-col items-center">
+      {errorMessage && (<span className="font-body text-red text-center text-lg my-4">{errorMessage}</span>)}
       <button className="font-heading rounded-[10px] bg-green text-white text-xl p-2 px-16 mt-2" onClick={handleRecipeSearch}>Find A Recipe</button>
       {searchedRecipes && matchRecipes.length > 0 && (
         <RecipeList recipes={matchRecipes} />
