@@ -39,6 +39,8 @@ const RecipeSearch = ({ commonIngredients, handleAddIngredient, selectedIngredie
           className="py-1 border-none focus:ring-0 outline-none rounded-l-md"
           id="ingredients"
           type="text"
+          minlength="2"
+          required 
           autoFocus
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
