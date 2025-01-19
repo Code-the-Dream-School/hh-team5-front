@@ -33,7 +33,7 @@ const RecipeSearch = ({ commonIngredients, handleAddIngredient, selectedIngredie
 
   return (
     <form className="flex flex-col items-center mt-4" onSubmit={handleSearch}>
-      <label className="font-heading text-black text-2xl text-center m-2 mt-10">Search for Ingredients</label>
+      <label className="font-heading text-black text-xl md:text-2xl text-center m-2 sm:mt-10">Search for Ingredients</label>
       <span className="flex flex-row px-2 justify-evenly bg-white focus-within:ring-2 focus-within:ring-blue-400 rounded-md focus-within:shadow-s focus-within:shadow-blue-400 border-gray-400 border-[0.5px]">
         <input
           className="py-1 border-none focus:ring-0 outline-none rounded-l-md"
