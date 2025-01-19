@@ -2,8 +2,7 @@ import React, { useState } from "react"
 import api from "../../util"
 import RecipeList from "../RecipeList"
 
-const SearchList = ({ selectedIngredients }) => {
-  const [matchRecipes, setMatchRecipes] = useState([])
+const SearchList = ({ selectedIngredients, matchRecipes, setMatchRecipes }) => {
   const [searchedRecipes, setSearchedRecipes] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
 

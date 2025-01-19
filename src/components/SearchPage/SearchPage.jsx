@@ -9,6 +9,7 @@ import SearchList from './SearchList.jsx';
 
 const SearchPage = () => {
   const [selectedIngredients, setSelectedIngredients] = useState([])
+  const [matchRecipes, setMatchRecipes] = useState([])
 
   const handleAddCommonIngredient = (id) => {
     const selectedCommonIngredient = commonIngredients.find((item) => item.id === id)
@@ -28,6 +29,7 @@ const SearchPage = () => {
 
   const handleClearAllIngredients = () => {
     setSelectedIngredients([])
+    setMatchRecipes([])
   }
 
   return (
@@ -39,7 +41,7 @@ const SearchPage = () => {
         <SelectedIngredientsList selectedIngredients={selectedIngredients} handleRemoveIngredient={handleRemoveIngredient} handleClearAllIngredients={handleClearAllIngredients} />
       </div>
       <div className="flex-grow">
-        <SearchList selectedIngredients={selectedIngredients} />
+        <SearchList selectedIngredients={selectedIngredients} matchRecipes={matchRecipes} setMatchRecipes={setMatchRecipes} />
       </div>
     </div>
   )
