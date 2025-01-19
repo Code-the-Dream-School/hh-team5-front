@@ -62,11 +62,11 @@ const Homepage = () => {
   return (
     <div className="bg-green min-h-screen flex items-center flex-col">
       <Header />
-      <h1 className="font-heading text-white text-4xl w-full text-center py-2 mt-6 md:mt-12 md:mb-8">Hello, Chef.</h1>
-      <div className="max-w-4xl md:m-4">
-        <ul className="flex flex-col md:flex-row">
+      <h1 className="font-heading text-white text-2xl w-full text-center py-2 mt-6 md:text-4xl md:mt-12 md:mb-8 ">Hello, Chef.</h1>
+      <div className="flex max-w-6xl md:m-4 justify-between">
+        <ul className="flex flex-col min-[480px]:mx-8 sm:mx-12 md:flex-row">
           {routeCards.map((routeCard) => (
-            <li key={routeCard.id} className="bg-yellow rounded-[20px] drop-shadow-md p-8 m-6">
+            <li key={routeCard.id} className="bg-yellow rounded-[20px] drop-shadow-md p-6 m-6 my-4 sm:p-8 sm:px-8">
               {routeCard.link === "/favorites" ? (
                  <div onClick={(e) => handleFavoritesClick(e)} className={`hover:cursor-pointer`} >
                  <div className="rounded-[15px] drop-shadow-md py-16 bg-contain bg-no-repeat" style={{ backgroundImage: `url(${routeCard.image})`, backgroundSize:'100% 100%'}}>
