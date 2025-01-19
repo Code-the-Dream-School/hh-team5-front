@@ -44,29 +44,19 @@ const RecipeList = ({ recipes }) => {
   };
 
   return (
-    <div>
-      <div className="cardList">
-        {currentRecipes.map((item) => (
-          <RecipeCard key={item.recipeID} recipes={item} />
-        ))}
+    <div className="flex flex-col items-center mt-10">
+      <p className="font-heading text-black text-2xl max-[480px]:m-0 mt-10">Recipes found:</p>
+      <div className="flex flex-wrap justify-center max-w-full gap-4">
+        {currentRecipes.map((item) => (<RecipeCard key={item.recipeID} recipes={item} />))}
       </div>
-      <div className="pagination-controls">
-        <button onClick={prevPage} disabled={currentPage === 1}>
-          Previous
-        </button>
-        <span>
-          Page {currentPage} of {Math.ceil(sortedRecipes.length / recipesPerPage)}
-        </span>
-        <button
-          onClick={nextPage}
-          disabled={currentPage === Math.ceil(sortedRecipes.length / recipesPerPage)}
-        >
-          Next
-        </button>
+      <div className="flex flex-row font-heading text-xl justify-evenly mb-4 mt-16">
+          <button className="mt-6" onClick={prevPage} disabled={currentPage === 1}>Previous</button>
+         <span className="mt-6 max-[480px]:mx-10 mx-16">Page {currentPage} of {Math.ceil(recipes.length / recipesPerPage)}</span>
+          <button className="mt-6" onClick={nextPage} disabled={currentPage === Math.ceil(recipes.length / recipesPerPage)}>Next</button>
       </div>
     </div>
-  );
-};
+  )
+}
 
 RecipeList.propTypes = {
   recipes: PropTypes.arrayOf(PropTypes.object).isRequired,
