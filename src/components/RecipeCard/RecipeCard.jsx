@@ -30,7 +30,7 @@ const RecipeCard = ({ recipes }) => {
     };
 
     return (
-        <div className="card drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]" onClick={handleOpen}>
+        <div className="card" onClick={handleOpen}>
             <button
                 onClick={(e) => {
                     e.stopPropagation()
