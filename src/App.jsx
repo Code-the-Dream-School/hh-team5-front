@@ -1,18 +1,16 @@
 import Header from "./components/Header/Header.jsx";
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { getAllData } from './util/index';
-import Homepage from './components/Homepage/Homepage.jsx'
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { getAllData } from "./util/index";
+import Homepage from "./components/Homepage/Homepage.jsx";
 import FavoritesPage from "./components/FavoritesPage/FavoritesPage.jsx";
-
-
 
 const URL = "http://localhost:8000/api/v1/";
 
 function App() {
   const [message, setMessage] = useState("");
   const [recipeData, setRecipeData] = useState(null);
-  const [error,setError] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -45,9 +43,9 @@ function App() {
       <Header />
       <h1>{message}</h1>
       <Routes>
-        <Route path='/' element={<Homepage />} />
-        <Route path='FindARecipe' element={<h1>Find A Recipe</h1>} />
-        <Route path='Favorites' element={<FavoritesPage />} />
+        <Route path="/" element={<Homepage />} />
+        <Route path="FindARecipe" element={<h1>Find A Recipe</h1>} />
+        <Route path="Favorites" element={<FavoritesPage />} />
       </Routes>
     </BrowserRouter>
   );
