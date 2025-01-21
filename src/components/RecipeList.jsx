@@ -57,7 +57,7 @@ const RecipeList = ({ recipes }) => {
 
   return (
     <div className="flex flex-col items-center mt-10">
-      <button onClick={toggleSortDirection}>
+      <button onClick={toggleSortDirection} className="rounded-[30px] min-w-[60px] bg-orange text-white py-1 px-3">
         Sort by Cook Time ({sortAscending ? "Ascending" : "Descending"})
       </button>
       <div className="flex flex-wrap justify-center max-w-full gap-4">
