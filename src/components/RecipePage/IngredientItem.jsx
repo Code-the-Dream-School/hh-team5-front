@@ -9,7 +9,7 @@ const IngredientItem = ({ ingredient }) => {
     <li
       style={{
         backgroundColor: "#f9f5e7",
-        lineHeight: "0.6",
+        lineHeight: "0.9",
         textAlign: "left",
         margin: "0.1",
       }}
