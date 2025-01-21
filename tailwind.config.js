@@ -14,6 +14,7 @@ export default {
         orange:'hsl(34, 100.00%, 39.40%)',
         yellow: 'hsl(46, 74%, 92%)',
         green: 'hsl(80, 60%, 35%)',
+        darkgreen:'hsl(80, 59.30%, 21.20%)',
         teal: 'hsla(193, 35.90%, 36.10%, 0.82)'
       },
       fontFamily: {
