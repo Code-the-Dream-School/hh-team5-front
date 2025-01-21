@@ -5,12 +5,12 @@ import IngredientItem from './IngredientItem';
 const IngredientsList = ({ ingredients }) => {
   return (
     <div className="ingredients-list">
-      <h3>Ingredients</h3>
-      <ul>
+      <h3 style={{fontSize:'25px'}}>Ingredients</h3>
+      <ol>
         {ingredients.map((ingredient, index) => (
           <IngredientItem key={index} ingredient={ingredient} />
         ))}
-      </ul>
+      </ol>
     </div>
   );
 };
