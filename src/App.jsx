@@ -5,10 +5,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { getAllData } from "./util/index";
 import Homepage from "./components/Homepage/Homepage.jsx";
 import RecipePage from "./components/RecipePage/RecipePage.jsx";
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { getAllData } from './util/index';
-import Homepage from './components/Homepage/Homepage.jsx'
 
 import FavoritesPage from "./components/FavoritesPage/FavoritesPage.jsx";
 
