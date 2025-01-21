@@ -11,18 +11,13 @@ const RecipePage = ({ recipe, onClose }) => {
 
   return (
     <>
-      <NavLink />
       <div className={styles.recipeOverlay} onClick={onClose}></div>
-
       <div className={styles.recipePage}>
         <div className={styles.recipeContent}>
           <RecipeHeader title={name} cookTime={timeCook} />
           <RecipeContent ingredients={ingredients} steps={directions} />
-
-          <div>
-            <RecipeImage image={recipeImage} />
-          </div>
         </div>
+        <RecipeImage image={recipeImage} />
       </div>
     </>
   );

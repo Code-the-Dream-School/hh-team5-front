@@ -1,28 +1,70 @@
-# Front-End Repo for Node/React Practicum
+# Recipe Finder App
 
-This will be the front-end for your team's practicum project.
+The Recipe Finder App is a web application built using the MERN stack (MongoDB, Express.js, React, Node.js) that helps users find recipes based on available ingredients. Users can browse, search, and generate recipes, as well as save their favorite recipes for easy access.
 
-It is suggested that you run these instructions **after** you setup the back-end server first.
-You can go through these steps during your first group meeting in case you need assistance from your mentors.
+## Features
 
-You will have two folders inside one team folder (one for front-end and one for back-end). Name the parent folder something appropriate (in the below example we title it "Practicum Project").  Then clone directly (do not fork and clone) the front and back repos while inside the parent ("Practicum Project") project folder.
+**Ingredient Selection:**
+- Click on common ingredients or search for ingredients
+- Select 3-5 pantry ingredients to generate recipes
+  
+**Recipe Generation:**
+Provides detailed recipe views, including:
+- Preparation steps
+- Cooking instructions
+- Estimated cooking time
+- Sort and filter recipes by cooking time
 
-![folders](images/folder_structure.png)
+**Favorites Management:**
+- Save recipes to a favorites page
 
->The front-end app (React) will be running on port 3000. The back-end server will be running on port 8000. You will need to run both the front-end app and the back-end server at the same time to test your app.
+## Installation
 
-### Setting up local development environment
+**Prerequisites**
 
-1. Clone this repository to the folder that was already created for both the front-end and back-end repos
-2. Run `npm install` to install dependencies
-3. Pull the latest version of the `main` branch (when needed)
-4. Run `npm start` to start the development server
-5. Open http://localhost:3000 with your browser to see the data received the back-end server.
-6. Now you have your front-end and back-end running locally!
+Ensure you have the following installed:
+- Node.js
+- MongoDB
+- npm or yarn
 
-#### Running the front-end server in Visual Studio Code
-Note: In the below example, the group's front-end repository was named `bb-practicum-team1-front` and the back-end repository was named `bb-practicum-team-1-back`.  Your repository will have a different name, but the rest should look the same.
-![vsc running](images/front-end-running-vsc.png)
+## Steps
+**Clone the repository:**
+- `git clone https://github.com/yourusername/recipe-finder-app.git`
+- `cd recipe-finder-app`
 
-#### Running the front-end server in the browser
-![browser running](images/front-end-running-browser.png)
+**Install dependencies:**
+- `npm install`
+  
+**Set up environment variables:**
+Create a .env file in the backend directory with the following content:
+- MONGO_URI=your_mongodb_connection_string
+- ACCESS_TOKEN_SECRET=your_access_token_string
+  
+**Run the application**
+- Run `npm run dev` in the backend and frontend
+
+## Misc
+
+### Technologies Used
+
+**Frontend**
+- React
+- Vite
+- Tailwind CSS
+- Figma
+
+**Backend**
+- Node
+- Express
+- MongoDB
+- JWT
+
+
+### Future Enhancements
+- Allow users to upload their own recipes
+- Add more sorting options
+- Enhance styles with improved component structure
+- Optimize performance for large recipe datasets
+
+## License
+This project is licensed under the MIT License.

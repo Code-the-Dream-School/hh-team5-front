@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import RecipeList from '../RecipeList';
-// import { recipes } from '../../list'; // stand-in data until we have access to MongoDB
+import Header from '../Header/Header';
 import api from '../../util';
 
 const FavoritesPage = () => {
@@ -41,11 +41,17 @@ const FavoritesPage = () => {
 
     return (
         <>
+            <Header />
+            <h1>Favorites</h1>
             {!isLoading && (
                 <>
-                    <h1>Favorites</h1>
-                    <RecipeList recipes={favRecipes} />
-                </>)}
+                    {favRecipes.length > 0 ? (
+                        <RecipeList recipes={favRecipes} />
+                    ) : (
+                        <p className={`text-3xl text-center`}>No favorite recipes.</p>
+                    )}
+                </>
+            )}
         </>
     );
 };

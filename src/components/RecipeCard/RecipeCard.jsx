@@ -85,7 +85,7 @@ const RecipeCard = ({ recipes }) => {
             <img src={recipe.recipeImage} alt={recipe.name} />
             <RecipeInfo key={recipe._id} name={recipe.name} time={recipe.timeCook} />
             {open &&
-                <div className={`absolute inset-0 w-full h-full border-2 border-black rounded-2xl bg-white z-50 m-auto`} >
+                <div className="recipePage" onClick={(e) => e.stopPropagation()}>
                     <span onClick={handleClose}>
                         <FontAwesomeIcon icon={faXmark} style={{
                             fontSize: "2rem",
