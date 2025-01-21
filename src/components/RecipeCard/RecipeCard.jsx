@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RecipeInfo from "./RecipeInfo";
 import RecipePage from '../RecipePage/RecipePage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +10,10 @@ const RecipeCard = ({ recipes }) => {
     const [recipe, setRecipe] = useState(recipes);
     const [open, setOpen] = useState(false);
 
+    useEffect(() => {
+        checkFavorite()
+    }, [])
+
     const heartFilled = <FontAwesomeIcon icon={faHeartSolid} style={{
         color: "#ff0000", fontSize: "1.2rem"
     }} />
@@ -17,27 +21,47 @@ const RecipeCard = ({ recipes }) => {
         fontSize: "1.2rem"
     }} />
 
+    const checkFavorite = async () => {
+        try {
+            const favList = await api.get('/favorites', { withCredentials: true })
+            console.log("favlist: ", favList.data);
+
+            // if in fav list, change isFavorite to true
+            favList.data.map((ids) => {
+                if (ids === recipes._id) {
+                    setRecipe(prev => prev._id === ids ? { ...prev, isFavorite: true } : prev)
+                }
+            })
+        } catch (error) {
+            console.error(error?.message);
+        }
+    }
+
     const toggleFavorite = async (id) => {
         try {
-            let favList = await api.get('/favorites', { withCredentials: true })
-            console.log(favList);
-            const favorited = favList.data.find((recipe) => recipe.id === id)
+            const favList = await api.get('/favorites', { withCredentials: true })
+            console.log("favlist: ", favList.data);
+            console.log(id);
+
+            const favorited = favList.data.find((recipe) => recipe === id)
+            console.log(favorited, "favorited");
+
 
             if (!favorited) {
                 await api.post('/favorites', { id }, { withCredentials: true, },)
             } else {
-                await api.delete('/favorites', { id }, { withCredentials: true })
+                await api.delete('/favorites', { data: { id } }, { withCredentials: true })
             }
         } catch (error) {
             console.error(error?.message);
         }
-        setRecipe(prev => prev.recipeID === id ? { ...prev, isFavorite: !prev.isFavorite } : prev)
+        setRecipe(prev => prev._id === id ? { ...prev, isFavorite: !prev.isFavorite } : prev)
     };
 
-    console.log(recipe);
+    console.log("remaining fav: ", recipe);
 
 
-    const handleOpen = () => {
+    const handleOpen = (e) => {
         e.stopPropagation();
         setOpen(true);
     };
@@ -52,14 +76,14 @@ const RecipeCard = ({ recipes }) => {
             <button
                 onClick={(e) => {
                     e.stopPropagation()
-                    toggleFavorite(recipe.recipeID)
+                    toggleFavorite(recipe._id)
                 }}
                 className="favorite"
             >
                 {recipe.isFavorite ? heartFilled : heartEmpty}
             </button>
             <img src={recipe.recipeImage} alt={recipe.name} />
-            <RecipeInfo key={recipe.recipeID} name={recipe.name} time={recipe.timeCook} />
+            <RecipeInfo key={recipe._id} name={recipe.name} time={recipe.timeCook} />
             {open &&
                 <div className={`absolute inset-0 w-full h-full border-2 border-black rounded-2xl bg-white z-50 m-auto`} >
                     <span onClick={handleClose}>
@@ -71,7 +95,7 @@ const RecipeCard = ({ recipes }) => {
                         }} />
                     </span>
                     <RecipePage
-                        key={recipe.recipeID}
+                        key={recipe._id}
                         recipe={recipe}
                         onClose={handleClose}
                     />

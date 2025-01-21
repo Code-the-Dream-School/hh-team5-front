@@ -26,8 +26,6 @@ const FavoritesPage = () => {
     const fetchRecipes = async (arrID) => {
         try {
             console.log(arrID);
-            const test = await api.get(`/recipes/${arrID[0]}`)
-            console.log(test);
 
             const promises = arrID.map(id => api.get(`/recipes/${id}`)) // an array of Promises
             const resPromises = await Promise.all(promises)

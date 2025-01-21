@@ -32,7 +32,7 @@ const Homepage = () => {
   useEffect(() => {
     const checkLoginStatus = async () => {
       try {
-        await api.get('/favorites', { withCredentials: true, });
+        await api.get('/', { withCredentials: true, });
         setIsLoggedIn(true);
       } catch (error) {
         setIsLoggedIn(false);
