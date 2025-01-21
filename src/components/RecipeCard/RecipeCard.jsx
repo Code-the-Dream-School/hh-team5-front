@@ -98,7 +98,7 @@ const RecipeCard = ({ recipes }) => {
                         key={recipe._id}
                         recipe={recipe}
                         onClose={handleClose}
-                    />
+                    />                 
                 </div>}
         </div>
     );
