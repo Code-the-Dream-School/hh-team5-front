@@ -12,7 +12,7 @@ const RecipeList = ({ recipes }) => {
   const sortRecipesByCookTime = (recipes) => {
     return [...recipes].sort((a, b) => {
       // Assuming timeCook is a string like "30 minutes"- parse it to an integer
-      const timeA = parseInt(a.timeCook.replace(/\D/g,""), 10) || 0;
+      const timeA = parseInt(a.timeCook.replace(/\D/g, ""), 10) || 0;
       const timeB = parseInt(b.timeCook.replace(/\D/g, ""), 10) || 0;
       return sortAscending ? timeA - timeB : timeB - timeA; // Ascending or descending order
     });
@@ -50,10 +50,10 @@ const RecipeList = ({ recipes }) => {
     }
   };
 
-    // Toggle the sort direction when the button is clicked
-    const toggleSortDirection = () => {
-      setSortAscending(!sortAscending); // Toggle between true (ascending) and false (descending)
-    };
+  // Toggle the sort direction when the button is clicked
+  const toggleSortDirection = () => {
+    setSortAscending(!sortAscending); // Toggle between true (ascending) and false (descending)
+  };
 
   return (
     <div className="flex flex-col items-center mt-10">
@@ -63,13 +63,13 @@ const RecipeList = ({ recipes }) => {
       <div className="flex flex-wrap justify-center max-w-full gap-4">
         {currentRecipes.map((item) => (<RecipeCard key={item.recipeID} recipes={item} />))}
       </div>
-      <div className="flex flex-row font-heading text-xl justify-evenly mb-4 mt-16">
-          <button className="mt-6" onClick={prevPage} disabled={currentPage === 1}>Previous</button>
-         <span className="mt-6 max-[480px]:mx-10 mx-16">Page {currentPage} of{" "}
+      <div className="flex flex-row mt-16 mb-4 text-xl font-heading justify-evenly">
+        <button className="mt-6" onClick={prevPage} disabled={currentPage === 1}>Previous</button>
+        <span className="mt-6 max-[480px]:mx-10 mx-16">Page {currentPage} of{" "}
           {Math.ceil(recipes.length / recipesPerPage)}</span>
-          <button className="mt-6" onClick={nextPage} disabled={
-            currentPage === Math.ceil(recipes.length / recipesPerPage)
-          }>Next</button>
+        <button className="mt-6" onClick={nextPage} disabled={
+          currentPage === Math.ceil(recipes.length / recipesPerPage)
+        }>Next</button>
       </div>
     </div>
   )

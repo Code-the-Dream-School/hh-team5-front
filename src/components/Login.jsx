@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import api from '../util'
 import { useForm } from "react-hook-form"
 import { useNavigate } from 'react-router-dom';
@@ -67,14 +67,14 @@ const Login = ({ cancel }) => {
                 <div className="flex flex-row mt-1 justify-evenly">
                     <button
                         onClick={toggleLoginStatus}
-                        className={`w-full rounded-tl-md ${login ? "bg-orange-400" : "bg-gray-400"
+                        className={`w-full rounded-tl-md ${login ? "bg-amber-500" : "bg-gray-400"
                             }`}
                     >
                         Login
                     </button>
                     <button
                         onClick={toggleRegisterStatus}
-                        className={`w-full rounded-tr-md ${!login ? "bg-orange-400" : "bg-gray-400"
+                        className={`w-full rounded-tr-md ${!login ? "bg-amber-500" : "bg-gray-400"
                             }`}
                     >
                         Register
@@ -92,7 +92,7 @@ const Login = ({ cancel }) => {
                             return true
                         }
                     })} className={`bg-white rounded-md border-[1px] border-black pl-2 my-[5px]`} type='text' placeholder='Username' />
-                    {errors.username && <span className={`text-red-600`}>{errors.username.message}</span>}
+                    {errors.username && <span className={`text-[#FF0000] text-sm`}>{errors.username.message}</span>}
                     <label>Password:</label>
                     <input {...register('password', {
                         required: 'Password is required',
@@ -103,10 +103,10 @@ const Login = ({ cancel }) => {
                             return true
                         },
                     })} className={`bg-white rounded-md border-[1px] border-black pl-2 my-[5px]`} type='password' placeholder='Password' />
-                    {errors.password && <span className={`text-red-600`}>{errors.password.message}</span>}
-                    <button disabled={isSubmitting} className={`mt-14 bg-green-400 p-2 rounded-md`} type='submit'>{login ? 'Login' : 'Register'}</button>
+                    {errors.password && <span className={`text-[#FF0000] text-sm`}>{errors.password.message}</span>}
+                    <button disabled={isSubmitting} className={`mt-14 bg-lime-400 p-2 rounded-md`} type='submit'>{login ? 'Login' : 'Register'}</button>
                     <button onClick={cancel}>Cancel</button>
-                    {errorMessage && <span className="mt-2 text-center text-red-600">{errorMessage}</span>}
+                    {errorMessage && <span className="mt-2 text-center text-[#FF0000] text-sm">{errorMessage}</span>}
                 </form>
             </div>
         </div>
